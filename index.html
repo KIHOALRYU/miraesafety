@@ -1,88 +1,116 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="미래안전연구원 - 위험성평가, 제조업 유해위험방지계획서, 공정안전관리, 근골격계부담작업 유해요인조사, 제조업 안전관리계획서 컨설팅" />
-  <title>미래안전연구원 | 산업안전 전문 컨설팅</title>
-  <style>
-    :root{
-      --navy:#0b1f36; --blue:#1464c0; --cyan:#29a9e8; --bg:#f4f7fb; --text:#16263a; --muted:#6b7b8f; --line:#dce5ef; --white:#fff;
-    }
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Pretendard,"Noto Sans KR",Arial,sans-serif;color:var(--text);background:#fff;line-height:1.65}
-    a{text-decoration:none;color:inherit} img{display:block;max-width:100%}
-    .wrap{width:min(1180px,calc(100% - 40px));margin:auto}
-    header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(220,229,239,.8)}
-    .nav{height:74px;display:flex;align-items:center;justify-content:space-between;gap:28px}
-    .brand img{width:209px;height:auto}.menu{display:flex;gap:28px;font-size:15px;font-weight:700;color:#324861}.menu a:hover{color:var(--blue)}
-    .hero{position:relative;min-height:680px;display:flex;align-items:center;overflow:hidden;background:url("assets/hero-bg.png") center right/cover no-repeat}
-    .hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,23,40,.72) 0%,rgba(10,31,54,.56) 28%,rgba(11,31,55,.28) 52%,rgba(255,255,255,.04) 100%);z-index:0}
-    .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,0) 24%,rgba(9,26,45,.10) 100%);z-index:0}
-    .hero-content{position:relative;z-index:2;width:min(1180px,calc(100% - 40px));margin:auto;padding:96px 0;color:#fff}
-    .eyebrow{font-size:14px;font-weight:800;letter-spacing:.16em;color:#9fe1ff;margin-bottom:18px}.hero h1{font-size:clamp(40px,5vw,68px);line-height:1.15;margin:0 0 24px;letter-spacing:-.04em;text-shadow:0 8px 28px rgba(3,12,22,.22)}.hero p{font-size:18px;max-width:650px;color:#eff6fd;margin:0 0 34px;text-shadow:0 2px 12px rgba(3,12,22,.18)}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border-radius:12px;font-weight:800;font-size:15px}.btn-primary{background:#1d85e8;color:#fff}.btn-ghost{border:1px solid rgba(255,255,255,.35);color:#fff;background:rgba(255,255,255,.06)}
-    section{padding:92px 0}.section-head{max-width:760px;margin-bottom:42px}.section-head .kicker{font-size:13px;font-weight:900;letter-spacing:.12em;color:var(--blue);text-transform:uppercase}.section-head h2{font-size:clamp(30px,4vw,46px);line-height:1.2;margin:8px 0 14px;letter-spacing:-.03em}.section-head p{color:var(--muted);margin:0}
-    .services{background:var(--bg)}.service-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}.service-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 24px;min-height:230px;box-shadow:0 10px 30px rgba(15,47,79,.04);transition:.2s}.service-card:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(15,47,79,.08)}.num{width:40px;height:40px;border-radius:12px;background:#e9f4ff;color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:900;margin-bottom:22px}.service-card h3{font-size:19px;line-height:1.35;margin:0 0 10px}.service-card p{font-size:14px;color:var(--muted);margin:0}
-    .about{background:linear-gradient(180deg,#fff,#f6f9fc)}.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}.about-visual{min-height:390px;border-radius:24px;background:linear-gradient(145deg,#0b2744,#1464c0);position:relative;overflow:hidden;box-shadow:0 24px 55px rgba(15,47,79,.13)}.about-visual:before,.about-visual:after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.18)}.about-visual:before{width:320px;height:320px;right:-80px;top:-50px}.about-visual:after{width:220px;height:220px;left:-40px;bottom:-70px}.visual-mark{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:86px;font-weight:900;letter-spacing:-.06em;color:rgba(255,255,255,.92)}.visual-sub{position:absolute;left:34px;bottom:28px;color:#bfe7ff;font-weight:800;letter-spacing:.12em;font-size:13px}.about-copy h2{font-size:42px;line-height:1.2;margin:0 0 18px}.about-copy p{color:var(--muted);font-size:16px}.pill-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}.pill{padding:10px 13px;border-radius:999px;background:#edf5fd;color:#235a8d;font-size:13px;font-weight:800}
-    .contact{background:#081c31;color:#fff}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}.contact h2{font-size:42px;line-height:1.2;margin:0 0 18px}.contact p{color:#b9cadd}.contact-box{background:#0f2a47;border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:28px}.row{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08)}.row:last-child{border-bottom:0}.label{font-size:12px;color:#87a8c8;font-weight:800;margin-bottom:4px}.value{font-size:16px;font-weight:700}.contact-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.contact-actions a{background:#1d85e8;border-radius:10px;padding:12px 16px;font-weight:800;font-size:14px}
-    footer{background:#061525;color:#86a0b7;padding:26px 0;font-size:13px}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-    @media(max-width:1050px){.service-grid{grid-template-columns:repeat(2,1fr)}.service-card:last-child{grid-column:span 2}.about-grid,.contact-grid{grid-template-columns:1fr}.menu{display:none}}
-    @media(max-width:640px){.wrap,.hero-content{width:min(100% - 28px,1180px)}.nav{height:66px}.brand img{width:180px}.hero{min-height:610px}.hero-content{padding:76px 0}.hero p{font-size:16px}.service-grid{grid-template-columns:1fr}.service-card:last-child{grid-column:span 1}.about-visual{min-height:280px}.visual-mark{font-size:64px}.about-copy h2,.contact h2{font-size:32px}section{padding:72px 0}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="미래안전연구원 - 위험성평가, 제조업 유해위험방지계획서, 공정안전관리, 근골격계부담작업 유해요인조사, 제조업 안전관리계획서 컨설팅">
+<title>미래안전연구원 | 산업안전 전문 컨설팅</title>
+<style>
+:root{--navy:#0b2340;--navy2:#071a2f;--blue:#0d63c9;--blue2:#1b78e6;--sky:#edf6ff;--text:#17283c;--muted:#68798d;--line:#dce6ef;--bg:#f6f9fc;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Pretendard,"Noto Sans KR",Arial,sans-serif;color:var(--text);background:#fff;line-height:1.6}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(220,230,239,.9)}.nav{height:82px;display:grid;grid-template-columns:260px 1fr 230px;align-items:center;gap:24px}.brand img{width:205px}.menu{display:flex;justify-content:center;gap:34px;font-weight:800;font-size:15px;color:#273d55}.menu a:hover{color:var(--blue)}.phone{display:flex;justify-content:flex-end;align-items:center;gap:10px}.phone-icon{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#eaf4ff;color:var(--blue);font-size:21px}.phone strong{display:block;color:var(--blue);font-size:19px;line-height:1.1}.phone span{font-size:12px;color:#4c5d70}
+.hero{position:relative;min-height:610px;display:flex;align-items:center;background:url('hero-bg.png') center right/cover no-repeat;overflow:hidden}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.92) 28%,rgba(255,255,255,.67) 48%,rgba(255,255,255,.08) 73%,rgba(255,255,255,0) 100%)}.hero-content{position:relative;z-index:2;padding:94px 0;max-width:650px}.hero .sub{color:#184d89;font-weight:800;letter-spacing:.02em;margin-bottom:10px}.hero h1{font-size:clamp(44px,5.5vw,72px);line-height:1.08;margin:0 0 22px;letter-spacing:-.055em;color:#101d2d}.hero h1 em{font-style:normal;color:#1670df}.hero p{font-size:18px;color:#33475c;max-width:570px;margin:0 0 32px}.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-width:140px;padding:14px 22px;border-radius:8px;font-weight:800;font-size:15px}.btn-primary{background:#0e4d9c;color:#fff}.btn-white{background:#fff;border:1px solid #aac0d8;color:#1d3d61}
+section{padding:82px 0}.section-title{text-align:center;margin-bottom:38px}.section-title h2{font-size:36px;margin:0 0 8px;letter-spacing:-.03em}.section-title p{margin:0;color:var(--muted)}
+.services{background:#fff}.service-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}.service-card{border:1px solid #e4ebf2;border-radius:18px;padding:28px 22px;text-align:center;box-shadow:0 12px 30px rgba(12,44,76,.06);transition:.22s;background:#fff}.service-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(12,44,76,.11)}.icon{width:68px;height:68px;margin:0 auto 18px;border-radius:18px;background:#eef6ff;color:var(--blue);display:grid;place-items:center;font-size:34px}.service-card h3{font-size:18px;line-height:1.35;margin:0 0 10px}.service-card p{font-size:14px;color:var(--muted);margin:0 0 18px}.more{font-size:13px;font-weight:900;color:var(--blue)}
+.about{padding:0;background:#0b2d54;color:#fff}.about-grid{display:grid;grid-template-columns:1fr 1.15fr;min-height:390px}.about-photo{position:relative;background:linear-gradient(135deg,rgba(18,81,145,.86),rgba(7,31,55,.55)),url('hero-bg.png') center/cover no-repeat}.about-photo:after{content:"MIRAE SAFETY\A INSTITUTE";white-space:pre;position:absolute;left:42px;bottom:40px;font-weight:900;font-size:18px;line-height:1.1;letter-spacing:.06em;color:#fff}.about-copy{padding:62px 56px;background:linear-gradient(120deg,#0a315d,#08233e)}.about-copy h2{font-size:34px;margin:0 0 12px}.about-copy>p{color:#d6e7f8;margin:0 0 34px;max-width:630px}.strengths{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.strength{border-left:1px solid rgba(255,255,255,.15);padding-left:20px}.strength:first-child{border-left:0;padding-left:0}.strength b{display:block;margin-bottom:6px}.strength span{font-size:13px;color:#b9d0e7}
+.info{background:#fff}.info-grid{display:grid;grid-template-columns:1fr 1fr .9fr;gap:34px}.panel h3{font-size:22px;margin:0 0 14px;border-bottom:2px solid #223b56;padding-bottom:12px}.list-row{display:flex;justify-content:space-between;gap:18px;padding:13px 0;border-bottom:1px solid #e5ebf1;font-size:14px}.list-row span:last-child{color:#8a98a8;white-space:nowrap}.contact-card{background:linear-gradient(160deg,#eef6ff,#fff);border:1px solid #d9e6f3;border-radius:18px;padding:26px}.contact-card .tag{font-size:14px;font-weight:900;margin-bottom:8px}.contact-card .big{font-size:28px;color:var(--blue);font-weight:900;margin:4px 0 18px}.contact-item{font-size:14px;color:#4e6074;margin:10px 0}.contact-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.contact-btns a{padding:11px 14px;border-radius:8px;background:#0f63c8;color:#fff;font-size:13px;font-weight:800}
+footer{background:#08192b;color:#a9bbcb;padding:28px 0}.foot{display:grid;grid-template-columns:220px 1fr 70px;align-items:center;gap:28px}.foot img{width:180px;filter:brightness(0) invert(1);opacity:.92}.foot .meta{font-size:12px;line-height:1.8}.top{justify-self:end;width:48px;height:48px;border-radius:50%;background:#fff;color:#17314f;display:grid;place-items:center;font-weight:900;font-size:12px}
+@media(max-width:1050px){.nav{grid-template-columns:220px 1fr}.phone{display:none}.service-grid{grid-template-columns:repeat(2,1fr)}.service-card:last-child{grid-column:span 2}.about-grid{grid-template-columns:1fr}.about-photo{min-height:300px}.info-grid{grid-template-columns:1fr 1fr}.contact-card{grid-column:1/-1}}
+@media(max-width:700px){.wrap{width:min(100% - 28px,1180px)}.nav{height:68px;grid-template-columns:1fr auto}.brand img{width:170px}.menu{display:none}.hero{min-height:560px;background-position:64% center}.hero:before{background:linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.91) 60%,rgba(255,255,255,.35) 100%)}.hero-content{padding:76px 0}.hero p{font-size:16px}.service-grid,.info-grid,.strengths{grid-template-columns:1fr}.service-card:last-child{grid-column:auto}.about-copy{padding:42px 26px}.strength{border-left:0;border-top:1px solid rgba(255,255,255,.13);padding:16px 0 0}.strength:first-child{border-top:0}.foot{grid-template-columns:1fr;gap:16px}.top{justify-self:start}}
+
+.process{background:#f4f8fc}.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.process-step{position:relative;background:#fff;border:1px solid #dde8f2;border-radius:16px;padding:28px 24px;box-shadow:0 10px 28px rgba(14,54,91,.05)}.process-step span{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#eaf4ff;color:#0d63c9;font-weight:900;margin-bottom:18px}.process-step b{display:block;font-size:18px;margin-bottom:8px}.process-step p{margin:0;color:#68798d;font-size:14px}.process-step:not(:last-child):after{content:"→";position:absolute;right:-17px;top:50%;transform:translateY(-50%);color:#8ab8e8;font-size:22px;font-weight:900;z-index:2}@media(max-width:900px){.process-grid{grid-template-columns:repeat(2,1fr)}.process-step:after{display:none}}@media(max-width:620px){.process-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top"><img src="assets/로고2(2).jpg" alt="미래안전연구원 로고"></a>
-    <nav class="menu"><a href="#services">업무분야</a><a href="#about">연구원 소개</a><a href="#contact">문의하기</a></nav>
+    <a class="brand" href="#top"><img src="로고2(2).jpg" alt="미래안전연구원 로고"></a>
+    <nav class="menu"><a href="#about">연구원 소개</a><a href="#services">업무분야</a><a href="#process">진행절차</a><a href="#info">자료실</a><a href="#contact">고객센터</a></nav>
+    <div class="phone"><div class="phone-icon">☎</div><div><strong>031-373-8120</strong><span>평일 09:00 - 18:00</span></div></div>
   </div>
 </header>
-
 <main id="top">
-  <section class="hero">
-    <div class="hero-content" style="padding-top:110px;padding-bottom:110px">
-      <div class="eyebrow">MIRAE SAFETY INSTITUTE</div>
-      <h1>현장을 이해하는<br>산업안전 전문 컨설팅</h1>
-      <p>미래안전연구원은 사업장의 위험요인을 정확히 파악하고, 현장에 적용 가능한 안전관리 체계를 구축할 수 있도록 전문적인 컨설팅을 제공합니다.</p>
-      <div class="hero-actions"><a class="btn btn-primary" href="#contact">상담 문의</a><a class="btn btn-ghost" href="#services">업무분야 보기</a></div>
-    </div>
-  </section>
+<section class="hero">
+  <div class="wrap"><div class="hero-content">
+    <div class="sub">Safety Today, Sustainable Tomorrow</div>
+    <h1>안전한 오늘,<br>지속 가능한 <em>내일</em></h1>
+    <p>미래안전연구원은 산업현장의 안전과 지속 가능한 성장을 위해 현장 중심의 전문적인 안전 컨설팅을 제공합니다.</p>
+    <div class="actions"><a class="btn btn-primary" href="#contact">업무문의</a><a class="btn btn-white" href="#about">연구원 소개</a></div>
+  </div></div>
+</section>
 
-  <section class="services" id="services">
-    <div class="wrap">
-      <div class="section-head"><div class="kicker">Consulting Services</div><h2>미래안전연구원의 주요 업무</h2><p>제조업 현장 중심의 안전관리 업무를 체계적으로 지원합니다.</p></div>
-      <div class="service-grid">
-        <article class="service-card"><div class="num">01</div><h3>위험성평가</h3><p>유해·위험요인을 파악하고 위험도를 평가하여 실효성 있는 개선대책 수립을 지원합니다.</p></article>
-        <article class="service-card"><div class="num">02</div><h3>제조업 유해위험방지계획서</h3><p>설비 및 공정의 위험요소를 검토하고 관련 계획서 작성과 대응을 지원합니다.</p></article>
-        <article class="service-card"><div class="num">03</div><h3>공정안전관리</h3><p>공정의 위험요인을 체계적으로 관리할 수 있도록 PSM 관련 안전관리 체계를 지원합니다.</p></article>
-        <article class="service-card"><div class="num">04</div><h3>근골격계부담작업 유해요인조사</h3><p>작업자 부담요인을 확인하고 작업환경 개선방안을 제시합니다.</p></article>
-        <article class="service-card"><div class="num">05</div><h3>제조업 안전관리계획서</h3><p>현장 여건과 작업특성을 반영한 안전관리계획 수립을 지원합니다.</p></article>
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-title"><h2>주요 업무 분야</h2><p>산업현장의 안전한 미래를 위한 전문적이고 체계적인 맞춤형 컨설팅을 제공합니다.</p></div>
+    <div class="service-grid">
+      <article class="service-card"><div class="icon">⛑</div><h3>위험성평가</h3><p>사업장의 유해·위험요인 도출 및 개선대책 수립</p><a class="more" href="#contact">자세히 보기 →</a></article>
+      <article class="service-card"><div class="icon">▤</div><h3>제조업<br>유해위험방지계획서</h3><p>법적 요건에 따른 작성 및 컨설팅 지원</p><a class="more" href="#contact">자세히 보기 →</a></article>
+      <article class="service-card"><div class="icon">🏭</div><h3>공정안전관리</h3><p>PSM(공정안전관리) 구축 및 이행 지원</p><a class="more" href="#contact">자세히 보기 →</a></article>
+      <article class="service-card"><div class="icon">⚙</div><h3>근골격계부담작업<br>유해요인조사</h3><p>작업환경 분석 및 개선방안 제시</p><a class="more" href="#contact">자세히 보기 →</a></article>
+      <article class="service-card"><div class="icon">☑</div><h3>제조업 안전관리계획서<br>컨설팅</h3><p>사업장 맞춤형 계획 수립 및 이행 지원</p><a class="more" href="#contact">자세히 보기 →</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-photo"></div>
+    <div class="about-copy">
+      <h2>미래안전연구원</h2>
+      <p>산업현장의 안전문화를 선도하는 전문 컨설팅 기관으로, 고객의 안전과 지속 가능한 성장을 함께 만들어갑니다.</p>
+      <div class="strengths">
+        <div class="strength"><b>전문성</b><span>다양한 산업분야 경험을 바탕으로 한 전문 컨설팅</span></div>
+        <div class="strength"><b>맞춤형 솔루션</b><span>사업장 특성에 맞는 현실적이고 실행 가능한 개선안</span></div>
+        <div class="strength"><b>지속 가능한 성장</b><span>안전관리 체계 구축을 통한 장기적인 기업가치 향상</span></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 
-  <section class="about" id="about">
-    <div class="wrap about-grid">
-      <div class="about-visual"><div class="visual-mark">MIRAE</div><div class="visual-sub">SAFETY · CONSULTING · SYSTEM</div></div>
-      <div class="about-copy"><div class="kicker">About Us</div><h2>안전은 서류가 아니라<br>현장에서 완성됩니다.</h2><p>미래안전연구원은 현장 중심의 점검과 분석을 통해 사업장에 필요한 안전관리 방안을 제안합니다. 형식적인 문서 작성에 그치지 않고, 실제 작업과 설비 특성을 반영한 컨설팅을 지향합니다.</p><div class="pill-row"><span class="pill">현장 중심</span><span class="pill">제조업 전문</span><span class="pill">실행 가능한 개선안</span><span class="pill">체계적 문서 지원</span></div></div>
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-title"><h2>컨설팅 진행 절차</h2><p>현장 확인부터 개선안 제시와 사후관리까지 체계적으로 진행합니다.</p></div>
+    <div class="process-grid">
+      <div class="process-step"><span>01</span><b>상담 및 사전검토</b><p>사업장 현황과 필요한 컨설팅 범위를 확인합니다.</p></div>
+      <div class="process-step"><span>02</span><b>현장 확인 및 분석</b><p>공정·설비·작업환경의 위험요인을 종합적으로 검토합니다.</p></div>
+      <div class="process-step"><span>03</span><b>개선대책 및 문서화</b><p>현장에 적용 가능한 개선방안과 필요한 문서를 작성합니다.</p></div>
+      <div class="process-step"><span>04</span><b>결과 안내 및 지원</b><p>결과를 설명하고 후속 조치와 이행을 지원합니다.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="contact" id="contact">
-    <div class="wrap contact-grid">
-      <div><div class="kicker" style="color:#55bfff">Contact</div><h2>미래안전연구원에<br>문의해 주세요.</h2><p>위험성평가 및 제조업 안전 관련 컨설팅이 필요하시면 연락해 주세요.</p></div>
-      <div class="contact-box">
-        <div class="row"><div class="label">전화</div><div class="value">031-373-8120</div></div>
-        <div class="row"><div class="label">팩스</div><div class="value">031-372-8110</div></div>
-        <div class="row"><div class="label">이메일</div><div class="value">kisa10@hanmail.net</div></div>
-        <div class="row"><div class="label">주소</div><div class="value">경기도 화성시 동탄구 동탄영천로 105, 이든앤스페이스 861호</div></div>
-        <div class="contact-actions"><a href="tel:0313738120">전화 연결</a><a href="mailto:kisa10@hanmail.net">이메일 보내기</a><a target="_blank" rel="noopener" href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%ED%99%94%EC%84%B1%EC%8B%9C%20%EB%8F%99%ED%83%84%EC%98%81%EC%B2%9C%EB%A1%9C%20105">네이버 지도</a></div>
-      </div>
+<section class="info" id="info">
+  <div class="wrap info-grid">
+    <div class="panel"><h3>공지사항</h3>
+      <div class="list-row"><span>안전보건 관련 최신 법령 개정 안내</span><span>2026.09.30</span></div>
+      <div class="list-row"><span>중대재해처벌법 대응 컨설팅 안내</span><span>2026.09.25</span></div>
+      <div class="list-row"><span>PSM 컨설팅 상담 안내</span><span>2026.09.18</span></div>
+      <div class="list-row"><span>근골격계 유해요인조사 상담 안내</span><span>2026.09.12</span></div>
     </div>
-  </section>
+    <div class="panel"><h3>자료실</h3>
+      <div class="list-row"><span>위험성평가 가이드라인</span><span>자료</span></div>
+      <div class="list-row"><span>유해위험방지계획서 작성 안내</span><span>자료</span></div>
+      <div class="list-row"><span>공정안전관리(PSM) 관련 자료</span><span>자료</span></div>
+      <div class="list-row"><span>근골격계 유해요인조사 서식</span><span>자료</span></div>
+    </div>
+    <aside class="contact-card" id="contact">
+      <div class="tag">빠른 상담 문의</div><div style="color:#6b7b8d;font-size:13px">전문 상담이 필요한 내용을 남겨주시면 신속하게 안내드리겠습니다.</div>
+      <div class="big">031-373-8120</div>
+      <div class="contact-item">팩스 031-372-8110</div>
+      <div class="contact-item">이메일 kisa10@hanmail.net</div>
+      <div class="contact-item">경기도 화성시 동탄구 동탄영천로 105, 이든앤스페이스 861호</div>
+      <div class="contact-btns"><a href="tel:0313738120">전화하기</a><a href="mailto:kisa10@hanmail.net">이메일 문의</a></div>
+    </aside>
+  </div>
+</section>
 </main>
-
-<footer><div class="wrap foot"><span>© 미래안전연구원. All rights reserved.</span><span>miraesafety.kr</span></div></footer>
+<footer>
+  <div class="wrap foot">
+    <img src="로고2(2).jpg" alt="미래안전연구원">
+    <div class="meta">경기도 화성시 동탄구 동탄영천로 105, 이든앤스페이스 861호 &nbsp; | &nbsp; TEL. 031-373-8120 &nbsp; | &nbsp; FAX. 031-372-8110 &nbsp; | &nbsp; kisa10@hanmail.net<br>Copyright © 미래안전연구원. All rights reserved.</div>
+    <a class="top" href="#top">↑<br>TOP</a>
+  </div>
+</footer>
 </body>
 </html>
