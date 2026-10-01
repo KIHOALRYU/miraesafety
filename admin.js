@@ -15,7 +15,21 @@
  async function findPost(id){const data=await getAdminPosts();return data.find(x=>String(x.id)===String(id))}
  async function editPost(id){const p=await findPost(id);if(!p)return;$('editId').value=p.id;$('title').value=p.title||'';$('body').value=p.content||'';$('published').checked=p.published!==false;$('fileNote').textContent=p.file_url?'현재 첨부파일이 있습니다. 새 파일을 선택하면 교체됩니다.':'필요한 경우 파일을 첨부할 수 있습니다.';$('saveBtn').textContent='수정 저장';window.scrollTo({top:0,behavior:'smooth'})}
  function reset(){$('editId').value='';$('title').value='';$('body').value='';$('file').value='';$('published').checked=true;$('fileNote').textContent='필요한 경우 PDF, 한글, 엑셀 등 파일을 첨부할 수 있습니다.';$('saveBtn').textContent='등록하기';status.textContent=''}
- async function uploadFile(file){if(!file)return null; if(!configured)return null; const safe=(Date.now()+'-'+file.name).replace(/[^a-zA-Z0-9._가-힣-]/g,'_');const path=`${cat}/${safe}`;const {error}=await client.storage.from('attachments').upload(path,file,{upsert:false});if(error)throw error;const {data}=client.storage.from('attachments').getPublicUrl(path);return data.publicUrl}
+ async function uploadFile(file){
+   if(!file)return null;
+   if(!configured)return null;
+   // Supabase Storage object key에는 한글/공백 등 비 ASCII 문자를 사용하지 않습니다.
+   // 원본 확장자만 안전하게 보존하고, 저장 파일명은 영문/숫자 기반의 고유값으로 생성합니다.
+   const rawExt=(file.name.split('.').pop()||'bin').toLowerCase();
+   const ext=rawExt.replace(/[^a-z0-9]/g,'')||'bin';
+   const unique=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():Math.random().toString(36).slice(2)+Date.now().toString(36);
+   const safeName=`${Date.now()}-${unique}.${ext}`;
+   const path=`${cat}/${safeName}`;
+   const {error}=await client.storage.from('attachments').upload(path,file,{upsert:false,contentType:file.type||undefined});
+   if(error)throw error;
+   const {data}=client.storage.from('attachments').getPublicUrl(path);
+   return data.publicUrl;
+ }
  async function save(){const title=$('title').value.trim(),body=$('body').value.trim(); if(!title){status.textContent='제목을 입력하세요.';return} status.textContent='저장 중...';const id=$('editId').value;try{let fileUrl=null;const f=$('file').files[0];if(f)fileUrl=await uploadFile(f); if(configured){let payload={category:cat,title,content:body,published:$('published').checked,updated_at:new Date().toISOString()};if(fileUrl)payload.file_url=fileUrl;let q=id?client.from('posts').update(payload).eq('id',id):client.from('posts').insert(payload);const {error}=await q;if(error)throw error;}else{let arr=localAll(); if(id){arr=arr.map(p=>String(p.id)===String(id)?{...p,title,content:body,published:$('published').checked,updated_at:new Date().toISOString()}:p)}else{arr.push({id:'local-'+Date.now(),category:cat,title,content:body,published:$('published').checked,file_url:null,created_at:new Date().toISOString(),updated_at:new Date().toISOString()})}saveLocal(arr)}status.textContent='저장되었습니다.';reset();await loadRows()}catch(e){status.textContent='저장 실패: '+e.message}}
  async function deletePost(id){if(!confirm('이 글을 삭제할까요?'))return; if(configured){const {error}=await client.from('posts').delete().eq('id',id);if(error){status.textContent='삭제 실패: '+error.message;return}}else{saveLocal(localAll().filter(p=>String(p.id)!==String(id)))}reset();loadRows()}
  document.querySelectorAll('.tab[data-cat]').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab[data-cat]').forEach(x=>x.classList.remove('active'));b.classList.add('active');cat=b.dataset.cat;reset();loadRows()});
