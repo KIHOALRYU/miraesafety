@@ -112,17 +112,11 @@ footer{background:#08192b;color:#a9bbcb;padding:28px 0}.foot{display:grid;grid-t
 
 <section class="info" id="info">
   <div class="wrap info-grid">
-    <div class="panel"><h3>공지사항</h3>
-      <div class="list-row"><span>위험성평가 컨설팅 안내</span><span>2026.09.30</span></div>
-      <div class="list-row"><span>제조업 유해위험방지계획서 컨설팅 안내</span><span>2026.09.25</span></div>
-      <div class="list-row"><span>PSM 컨설팅 안내</span><span>2026.09.18</span></div>
-      <div class="list-row"><span>근골격계부담작업 유해요인조사 안내</span><span>2026.09.12</span></div>
+    <div class="panel"><div style="display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #223b56;margin-bottom:0"><h3 style="border:0;margin:0;padding-bottom:12px">공지사항</h3><a href="notice.html" style="font-size:13px;color:#0d63c9;font-weight:800">전체보기 →</a></div>
+      <div id="home-notices"><div class="list-row"><span>공지사항을 불러오는 중입니다.</span><span></span></div></div>
     </div>
-    <div class="panel"><h3>자료실</h3>
-      <div class="list-row"><span>위험성평가 관련 자료</span><span>자료</span></div>
-      <div class="list-row"><span>제조업 유해위험방지계획서 관련 자료</span><span>자료</span></div>
-      <div class="list-row"><span>공정안전관리(PSM) 관련 자료</span><span>자료</span></div>
-      <div class="list-row"><span>근골격계질환 관련 자료</span><span>자료</span></div>
+    <div class="panel"><div style="display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #223b56;margin-bottom:0"><h3 style="border:0;margin:0;padding-bottom:12px">자료실</h3><a href="resource.html" style="font-size:13px;color:#0d63c9;font-weight:800">전체보기 →</a></div>
+      <div id="home-resources"><div class="list-row"><span>자료를 불러오는 중입니다.</span><span></span></div></div>
     </div>
     <aside class="contact-card" id="contact">
       <div class="tag">빠른 상담 문의</div><div style="color:#6b7b8d;font-size:13px">전문 상담이 필요한 내용을 남겨주시면 신속하게 안내드리겠습니다.</div>
@@ -142,5 +136,8 @@ footer{background:#08192b;color:#a9bbcb;padding:28px 0}.foot{display:grid;grid-t
     <a class="top" href="#top">↑<br>TOP</a>
   </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
